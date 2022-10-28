@@ -10,7 +10,8 @@ class App extends Component{ //added to create a class
   constructor(){
     super ();
     this.state ={
-      name: 'Zanite'
+      name: {firstName: 'Zane', lastName: 'Erina'},
+      company: 'testX'
     }
   }
   render (){ // added for class 
@@ -19,9 +20,14 @@ class App extends Component{ //added to create a class
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hi {this.state.name}
+          Hi, my name is {this.state.name.firstName} {this.state.name.lastName} and I work at {this.state.company}
         </p>
-        <button> Change name </button>
+        <button onClick={ () => 
+          {
+            this.setState({ name: 'Zane' })
+          }}
+        >
+           Change name </button>
       </header>
     </div>
   );
