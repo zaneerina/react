@@ -24,7 +24,21 @@ class App extends Component{ //added to create a class
         </p>
         <button onClick={ () => 
           {
-            this.setState({ name: 'Zane' })
+            this.setState(
+              // the state we pass here is equal to the current state, 
+              // but it's optional:
+              // (state, props) => {
+                // we're passing a function that retuns an object 'name'
+                () => {
+                return {
+                  name: {firstName: 'ZANE', lastName: 'ERINA'}
+                }
+              },
+              // callback:
+              () => {
+                console.log(this.state);
+              }
+            )
           }}
         >
            Change name </button>
