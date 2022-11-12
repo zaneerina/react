@@ -1,48 +1,50 @@
 
-// added just for the class 
-import {Component} from 'react'; 
+// added just for the class
+import {Component} from 'react';
 
 import logo from './logo.svg';
 import './App.css';
 
 // function App() {
-class App extends Component{ //added to create a class
+class App extends Component{
+  // this App component represents the entire application;
+  // it will be rendered in the index.js file
   constructor(){
     super ();
     this.state ={
-      name: {firstName: 'Zane', lastName: 'Erina'},
-      company: 'testX'
-    }
+
+
+      monsters: [
+        {
+          name: 'Linda',
+          id: '16hadsw'
+        },
+        {
+          name: 'Franko',
+          id: '10adsiw'
+        },
+        {
+          name: 'Donatello',
+          id: '11dswsds'
+        },
+        {
+          name: 'You',
+          id: '12adsw'
+        }
+      ]
+
+    };
   }
-  render (){ // added for class 
+  render (){ // added for class
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hi, my name is {this.state.name.firstName} {this.state.name.lastName} and I work at {this.state.company}
-        </p>
-        <button onClick={ () => 
-          {
-            this.setState(
-              // the state we pass here is equal to the current state, 
-              // but it's optional:
-              // (state, props) => {
-                // we're passing a function that retuns an object 'name'
-                () => {
-                return {
-                  name: {firstName: 'ZANE', lastName: 'ERINA'}
-                }
-              },
-              // callback:
-              () => {
-                console.log(this.state);
-              }
-            )
-          }}
-        >
-           Change name </button>
-      </header>
+      {
+        // (monster) is optional
+        this.state.monsters.map((monster)=> {
+          return <div key = {monster.id}>
+          </div>
+        })
+      }
     </div>
   );
   }
